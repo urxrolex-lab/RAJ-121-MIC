@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#10131d"><meta name="description" content="Local microphone audio effects demo for Android browsers">
+<link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icons/icon.svg" type="image/svg+xml"><link rel="stylesheet" href="style.css">
+<title>121 Mic Lab</title>
+</head>
+<body>
+<main class="app">
+  <header><div class="eyebrow">ANDROID AUDIO LAB</div><h1>121 <span>MIC</span> LAB</h1><p>Live mic effects · Local processing</p></header>
+  <section class="status card"><div><b id="statusTitle">Microphone is off</b><small id="statusText">Use headphones before starting to avoid feedback.</small></div><button id="toggle" class="primary">Start mic</button></section>
+  <section class="card"><h2>Presets</h2><div class="presets"><button data-preset="clean">CLEAR</button><button data-preset="bass">DEEP BASS</button><button data-preset="bright">BRIGHT</button><button data-preset="ultra">ULTRA V2</button></div><p class="note">ULTRA raises levels more strongly and may sound distorted. Keep volume comfortable.</p></section>
+  <section class="card controls"><h2>Mic controls</h2>
+    <label>Mic gain <output id="gainOut">1.0×</output><input id="gain" type="range" min="0" max="2.5" step="0.05" value="1"></label>
+    <label>Bass <output id="bassOut">0 dB</output><input id="bass" type="range" min="-12" max="12" step="1" value="0"></label>
+    <label>Presence <output id="presenceOut">0 dB</output><input id="presence" type="range" min="-12" max="12" step="1" value="0"></label>
+    <label>Treble <output id="trebleOut">0 dB</output><input id="treble" type="range" min="-12" max="12" step="1" value="0"></label>
+    <label>Echo mix <output id="echoOut">0%</output><input id="echo" type="range" min="0" max="40" step="1" value="0"></label>
+    <label>Reverb mix <output id="reverbOut">0%</output><input id="reverb" type="range" min="0" max="40" step="1" value="0"></label>
+  </section>
+  <section class="card"><h2>Voice character</h2><div class="presets voices"><button data-voice="normal" class="selected">NORMAL</button><button data-voice="radio">RADIO</button><button data-voice="robot">ROBOT</button></div><p class="note">These are simple audio-tone effects, not true pitch or voice-identity changes.</p></section>
+  <footer>Prototype 0.2 · Audio stays in this browser tab. It does not change Android's system mic or send processed audio into WhatsApp/other apps.</footer>
+</main>
+<script src="app.js"></script><script>if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));}</script>
+</body></html>
